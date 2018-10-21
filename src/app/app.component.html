@@ -1,0 +1,41 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<app-mail></app-mail>
+<app-register></app-register>
+<app-fblogin></app-fblogin>
+<h2>Here are some links to help you start: </h2>
+<div style="text-align:center">
+  <h1>
+    Welcome to {{title}}!
+  </h1>
+
+  <div class="container" style="width:400px">
+    <div style="color: blue; margin-bottom: 20px">
+      <h1>{{title}}</h1>
+      <h3>{{description}}</h3>
+    </div>
+
+    <app-form-upload></app-form-upload>
+
+    <br/>
+    <br/>
+
+    <app-list-upload></app-list-upload>
+  </div>
+
+  <div class="chat-container">
+    <div class="chat">
+      <div class="message"></div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  <div class="send-button">
+    <div class="send" (click)="sendMessage(input.value)">
+      <img src="../assets/images/send.png" width="75" height="75">
+    </div>
+    <input  id="input" type="text" #input>
+  </div>
+
+</div>
+

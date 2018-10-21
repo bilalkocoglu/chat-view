@@ -1,0 +1,14 @@
+<button (click)="facebookLogin()" >Login with Facebook</button>
+
+<div *ngIf="user">
+  <p>{{user.authToken}}</p>
+  <p>{{user.email}}</p>
+  <p>{{user.facebook}}</p>
+  <p>{{user.firstName}}</p>
+  <p>{{user.id}}</p>
+  <p>{{user.idToken}}</p>
+  <p>{{user.lastName}}</p>
+  <p>{{user.name}}</p>
+  <img src={{user.photoUrl}}>
+  <button (click)="facebookLogout()" >Signout with Facebook</button>
+</div>
