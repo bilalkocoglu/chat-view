@@ -35,7 +35,7 @@ export class FormUploadComponent implements OnInit {
   }
 
   uploadZip(){
-    window.open("https://chatservicemicro.herokuapp.com/upload/files/UMLPro.zip", "_blank");
+    window.open("https://chatservicemicro.herokuapp.com/upload/files/UMLPro.zip");
   }
 
 }

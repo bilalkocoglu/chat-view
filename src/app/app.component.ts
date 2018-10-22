@@ -4,6 +4,10 @@ import SockJS from 'sockjs-client';
 import * as $ from 'jquery';
 import { Howl } from 'howler';
 
+function setImageUrl(message) {
+  AppComponent.imageUrl = message;
+}
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -22,7 +26,11 @@ export class AppComponent implements OnInit{
   private serverUrl = 'https://chatservicemicro.herokuapp.com/socket';
 
   title = 'Chat';
-  description = 'Angular-SpringBoot Demo';
+  description = 'Upload';
+
+  static imageUrl ;
+
+  public classReference = AppComponent;
 
   private stompClient;
 
@@ -45,10 +53,14 @@ export class AppComponent implements OnInit{
     this.stompClient.connect({"nickname": "bilal"}, function(frame) {
       that.stompClient.subscribe('/chat', (message) => {
         if (message.body) {
-
+          console.log(message);
           var body = JSON.parse(message.body);
 
           console.log(body);
+
+          setImageUrl(body.message);
+
+          console.log(this.imageUrl);
 
           $('.chat').append('<div style="margin: 10px;"  class=\'message\'><span style="padding: 5px; color: white; background-color: blue; border-radius: 5px;">' + body.date + '->' + body.message + '</span></div>');
           sound.play();
@@ -64,5 +76,10 @@ export class AppComponent implements OnInit{
   sendMessage(message) {
     this.stompClient.send('/app/send/message', {'from': 'Bilal KOCOGLU'}, message);
     $('#input').val('');
+  }
+
+  downloadImage(){
+    console.log(AppComponent.imageUrl);
+    window.open(AppComponent.imageUrl);
   }
 }
