@@ -13,7 +13,7 @@ export class UploadFileService {
 
     formdata.append('file', file);
 
-    const req = new HttpRequest('POST', 'https://chatservicemicro.herokuapp.com/post', formdata, {
+    const req = new HttpRequest('POST', 'https://chatservicemicro.herokuapp.com/upload/post', formdata, {
       reportProgress: true,
       responseType: 'text'
     });
@@ -22,7 +22,7 @@ export class UploadFileService {
   }
 
   getFiles(): Observable<any> {
-    return this.http.get('https://chatservicemicro.herokuapp.com/getallfiles');
+    return this.http.get('https://chatservicemicro.herokuapp.com/upload/getallfiles');
   }
 
 }
